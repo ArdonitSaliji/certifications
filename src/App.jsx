@@ -1,11 +1,40 @@
 import { useState } from 'react';
 import './App.css';
-import cert from './assets/frontend-cert.pdf';
+import frontendCert from './assets/frontend-cert.pdf';
+import backendCert from './assets/backend-cert.pdf';
+
+import { Routes, Route, BrowserRouter, useSearchParams, useParams } from 'react-router-dom';
+
 function App() {
     return (
-        <div className='App'>
-            <embed className='cert' src={cert} width='800px' height='1200px' />
-        </div>
+        <BrowserRouter>
+            <div className='App'>
+                <Routes>
+                    <Route
+                        path='/frontend'
+                        element={
+                            <embed
+                                className='cert'
+                                src={frontendCert}
+                                width='800px'
+                                height='1200px'
+                            />
+                        }
+                    />
+                    <Route
+                        path='/backend'
+                        element={
+                            <embed
+                                className='cert'
+                                src={backendCert}
+                                width='800px'
+                                height='1200px'
+                            />
+                        }
+                    />
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 
